@@ -20,7 +20,6 @@ const (
 )
 
 var (
-	// Error messages
 	ResultMessages = map[int]string{
 		SuccessCode:          "با موفقیت تایید شد.",
 		MerchantNotFoundCode: "merchant یافت نشد.",
