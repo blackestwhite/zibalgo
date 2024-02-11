@@ -9,9 +9,8 @@ const (
 	MerchantInactiveCode = 103
 	MerchantInvalidCode  = 104
 	AlreadyVerifiedCode  = 201
-	InvalidAmountCode    = 105
-	InvalidCallbackCode  = 106
-	AmountExceedsLimit   = 113
+	NotPaid              = 202
+	InvalidTrackID       = 203
 
 	// baseURL is the base URL of the Zibal API.
 	BaseURL = "https://gateway.zibal.ir/"
@@ -25,9 +24,8 @@ var (
 		MerchantInactiveCode: "merchant غیر فعال",
 		MerchantInvalidCode:  "merchant نامعتبر",
 		AlreadyVerifiedCode:  "قبلا تایید شده.",
-		InvalidAmountCode:    "amount بایستی بزرگتر از 1,000 ریال باشد.",
-		InvalidCallbackCode:  "callbackUrl نامعتبر می‌باشد. (شروع با http و یا https)",
-		AmountExceedsLimit:   "amount مبلغ تراکنش از سقف میزان تراکنش بیشتر است.",
+		NotPaid:              "سفارش پرداخت نشده یا ناموفق بوده است.",
+		InvalidTrackID:       "trackId نامعتبر.",
 	}
 )
 
