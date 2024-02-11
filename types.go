@@ -14,13 +14,7 @@ const (
 	AmountExceedsLimit   = 113
 
 	// baseURL is the base URL of the Zibal API.
-	baseURL = "https://gateway.zibal.ir/"
-
-	// requestPath is the endpoint path for requesting payments.
-	requestPath = "v1/request"
-
-	// verifyPath is the endpoint path for verifying payments.
-	verifyPath = "v1/verify"
+	BaseURL = "https://gateway.zibal.ir/"
 )
 
 var (
