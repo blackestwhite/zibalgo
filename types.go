@@ -8,6 +8,9 @@ const (
 	MerchantNotFoundCode = 102
 	MerchantInactiveCode = 103
 	MerchantInvalidCode  = 104
+	AmountTooSmall       = 105
+	InvalidCallbackUrl   = 106
+	AmountExeeded        = 113
 	AlreadyVerifiedCode  = 201
 	NotPaid              = 202
 	InvalidTrackID       = 203
@@ -23,6 +26,9 @@ var (
 		MerchantNotFoundCode: "merchant یافت نشد.",
 		MerchantInactiveCode: "merchant غیر فعال",
 		MerchantInvalidCode:  "merchant نامعتبر",
+		AmountTooSmall:       "amount باید بزرگتر از ۱۰۰۰ ریال باشد.",
+		InvalidCallbackUrl:   "callbackUrl نامعتبر",
+		AmountExeeded:        "مبلغ تراکنش از سقف میزان بیشتر است",
 		AlreadyVerifiedCode:  "قبلا تایید شده.",
 		NotPaid:              "سفارش پرداخت نشده یا ناموفق بوده است.",
 		InvalidTrackID:       "trackId نامعتبر.",
