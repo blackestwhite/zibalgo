@@ -1,5 +1,7 @@
 package zibalgo
 
+import "net/http"
+
 const (
 	// Result codes
 	SuccessCode          = 100
@@ -10,6 +12,15 @@ const (
 	InvalidAmountCode    = 105
 	InvalidCallbackCode  = 106
 	AmountExceedsLimit   = 113
+
+	// baseURL is the base URL of the Zibal API.
+	baseURL = "https://gateway.zibal.ir/"
+
+	// requestPath is the endpoint path for requesting payments.
+	requestPath = "v1/request"
+
+	// verifyPath is the endpoint path for verifying payments.
+	verifyPath = "v1/verify"
 )
 
 var (
@@ -25,6 +36,15 @@ var (
 		AmountExceedsLimit:   "amount مبلغ تراکنش از سقف میزان تراکنش بیشتر است.",
 	}
 )
+
+// ZibalClient represents a client for interacting with the Zibal Payment Gateway.
+type ZibalClient struct {
+	// httpClient is used to send HTTP requests.
+	httpClient *http.Client
+
+	// merchat is the authentication token used for API requests.
+	merchant string
+}
 
 type PaymentRequest struct {
 	Merchant    string `json:"merchant"`
