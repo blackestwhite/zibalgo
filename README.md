@@ -1,5 +1,7 @@
 # Zibalgo
 
+[![Run Tests](https://github.com/blackestwhite/zibalgo/actions/workflows/tests.yml/badge.svg)](https://github.com/blackestwhite/zibalgo/actions/workflows/tests.yml)
+
 Example of creating and verifying payments:
 
 ```go
