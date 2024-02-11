@@ -56,3 +56,15 @@ type VerificationRequest struct {
 	Merchant string `json:"merchant"`
 	TrackID  string `json:"trackId"`
 }
+
+type VerificationResponse struct {
+	PaidAt      string `json:"paidAt"`
+	Amount      int    `json:"amount"`
+	Result      int    `json:"result"`
+	Status      int    `json:"status"`
+	RefNumber   int    `json:"refNumber"`
+	Description string `json:"description"`
+	CardNumber  string `json:"cardNumber"`
+	OrderId     string `json:"orderId"`
+	Message     string `json:"message"`
+}
