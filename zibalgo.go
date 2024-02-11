@@ -26,7 +26,7 @@ func (c *ZibalClient) NewPayment(ctx context.Context, paymentRequest PaymentRequ
 		return paymentResponse, fmt.Errorf("failed to marshal request data: %w", err)
 	}
 
-	url := fmt.Sprint(BaseURL, "/v1/request")
+	url := fmt.Sprint(BaseURL, "v1/request")
 	req, err := http.NewRequestWithContext(ctx, "POST", url, bytes.NewBuffer(requestBody))
 	if err != nil {
 		return paymentResponse, fmt.Errorf("failed to create HTTP request: %w", err)
@@ -54,7 +54,7 @@ func (c *ZibalClient) VerifyPayment(ctx context.Context, vericationRequest Verif
 		return verificationResponse, fmt.Errorf("failed to marshal request data: %w", err)
 	}
 
-	url := fmt.Sprint(BaseURL, "/v1/verify")
+	url := fmt.Sprint(BaseURL, "v1/verify")
 	req, err := http.NewRequestWithContext(ctx, "POST", url, bytes.NewBuffer(requestBody))
 	if err != nil {
 		return verificationResponse, fmt.Errorf("failed to create HTTP request: %w", err)
