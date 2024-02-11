@@ -54,7 +54,7 @@ type PaymentResponse struct {
 
 type VerificationRequest struct {
 	Merchant string `json:"merchant"`
-	TrackID  string `json:"trackId"`
+	TrackID  int    `json:"trackId"`
 }
 
 type VerificationResponse struct {
