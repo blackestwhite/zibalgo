@@ -20,6 +20,7 @@ func NewClient(merchant string) *ZibalClient {
 }
 
 func (c *ZibalClient) NewPayment(ctx context.Context, paymentRequest PaymentRequest) (paymentResponse PaymentResponse, err error) {
+	paymentRequest.Merchant = c.merchant
 	requestBody, err := json.Marshal(paymentRequest)
 	if err != nil {
 		return paymentResponse, fmt.Errorf("failed to marshal request data: %w", err)
@@ -47,6 +48,7 @@ func (c *ZibalClient) NewPayment(ctx context.Context, paymentRequest PaymentRequ
 }
 
 func (c *ZibalClient) VerifyPayment(ctx context.Context, vericationRequest VerificationRequest) (verificationResponse VerificationResponse, err error) {
+	vericationRequest.Merchant = c.merchant
 	requestBody, err := json.Marshal(vericationRequest)
 	if err != nil {
 		return verificationResponse, fmt.Errorf("failed to marshal request data: %w", err)
