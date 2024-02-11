@@ -65,6 +65,6 @@ type VerificationResponse struct {
 	RefNumber   int    `json:"refNumber"`
 	Description string `json:"description"`
 	CardNumber  string `json:"cardNumber"`
-	OrderId     string `json:"orderId"`
+	OrderID     string `json:"orderId"`
 	Message     string `json:"message"`
 }
