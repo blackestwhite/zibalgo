@@ -2,6 +2,7 @@ package zibalgo
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -18,14 +19,14 @@ func NewClient(merchant string) *ZibalClient {
 	}
 }
 
-func (c *ZibalClient) NewPayment(paymentRequest PaymentRequest) (paymentResponse PaymentResponse, err error) {
+func (c *ZibalClient) NewPayment(ctx context.Context, paymentRequest PaymentRequest) (paymentResponse PaymentResponse, err error) {
 	requestBody, err := json.Marshal(paymentRequest)
 	if err != nil {
 		return paymentResponse, fmt.Errorf("failed to marshal request data: %w", err)
 	}
 
 	url := fmt.Sprint(BaseURL, "/v1/request")
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(requestBody))
+	req, err := http.NewRequestWithContext(ctx, "POST", url, bytes.NewBuffer(requestBody))
 	if err != nil {
 		return paymentResponse, fmt.Errorf("failed to create HTTP request: %w", err)
 	}
@@ -45,14 +46,14 @@ func (c *ZibalClient) NewPayment(paymentRequest PaymentRequest) (paymentResponse
 	return paymentResponse, nil
 }
 
-func (c *ZibalClient) VerifyPayment(vericationRequest VerificationRequest) (verificationResponse VerificationResponse, err error) {
+func (c *ZibalClient) VerifyPayment(ctx context.Context, vericationRequest VerificationRequest) (verificationResponse VerificationResponse, err error) {
 	requestBody, err := json.Marshal(vericationRequest)
 	if err != nil {
 		return verificationResponse, fmt.Errorf("failed to marshal request data: %w", err)
 	}
 
 	url := fmt.Sprint(BaseURL, "/v1/verify")
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(requestBody))
+	req, err := http.NewRequestWithContext(ctx, "POST", url, bytes.NewBuffer(requestBody))
 	if err != nil {
 		return verificationResponse, fmt.Errorf("failed to create HTTP request: %w", err)
 	}
