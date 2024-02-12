@@ -24,7 +24,7 @@ paymentRequest := PaymentRequest{
 ctx := context.Background()
 res, err := client.NewPayment(ctx, paymentRequest)
 if err != nil {
-    t.Errorf("NewPayment failed: %v", err)
+    log.Println(err)
 }
 
 verificationRequest := VerificationRequest{
@@ -33,6 +33,6 @@ verificationRequest := VerificationRequest{
 // Call the VerifyPayment method with a context
 _, err = client.VerifyPayment(ctx, verificationRequest)
 if err != nil {
-    t.Errorf("VerifyPayment failed: %v", err)
+    log.Println(err)
 }
 ```
