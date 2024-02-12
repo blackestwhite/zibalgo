@@ -2,11 +2,16 @@
 
 [![Run Tests](https://github.com/blackestwhite/zibalgo/actions/workflows/tests.yml/badge.svg)](https://github.com/blackestwhite/zibalgo/actions/workflows/tests.yml)
 
+add package to your project:
+```
+go get github.com/blackestwhite/zibalgo
+```
+
 Example of creating and verifying payments:
 
 ```go
 // Create a new ZibalClient instance
-client := NewClient("zibal")
+client := zibalgo.NewClient("zibal")
 
 // Create a PaymentRequest instance
 paymentRequest := PaymentRequest{
